@@ -21,8 +21,10 @@ public class InsertDocument {
 
     public static void main(String[] args) {
         MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=false");
-        MongoDatabase mongoDatabase = mongoClient.getDatabase("mojkaro");
-        MongoCollection<Document> videos = mongoDatabase.getCollection("videos");
+        MongoDatabase mongoDatabase = mongoClient.getDatabase("database-name");
+        MongoCollection<Document> videos = mongoDatabase.getCollection("collection-name");
+	insertWithHashMap(videos);
+	insertWithCustomModel(videos);
     }
 
     /**
